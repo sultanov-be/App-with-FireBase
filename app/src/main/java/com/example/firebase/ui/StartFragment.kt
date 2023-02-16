@@ -6,8 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import com.example.firebase.R
 import com.example.firebase.databinding.FragmentStartBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class StartFragment : Fragment() {
     private lateinit var binding: FragmentStartBinding
 
@@ -16,6 +20,14 @@ class StartFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentStartBinding.inflate(layoutInflater)
+
+        binding.signIn.setOnClickListener {
+            findNavController().navigate(R.id.action_startFragment_to_signInFragment)
+        }
+
+        binding.signUpButton.setOnClickListener {
+            findNavController().navigate(R.id.action_startFragment_to_registrationFragment)
+        }
 
         return binding.root
     }

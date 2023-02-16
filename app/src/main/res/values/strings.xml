@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">FireBase</string>
+    <string name="sign_in">sign in</string>
+    <string name="sign_up">Sign up</string>
+    <string name="group_chat">Group chat</string>
+    <string name="type_email">Type email</string>
+    <string name="type_password">Type password</string>
+    <string name="type_a_nickname">Type a nickname</string>
+    <string name="go_back">go back</string>
 </resources>

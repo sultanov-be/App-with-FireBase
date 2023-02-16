@@ -1,9 +1,10 @@
-package com.example.firebase
+package com.example.firebase.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import com.example.firebase.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

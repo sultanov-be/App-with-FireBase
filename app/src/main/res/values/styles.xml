@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--TextStyles for Authorization and Reset Password screens-->
+    <style name="LogoTextStyle">
+        <item name="fontFamily">@font/pacifico</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/blue</item>
+        <item name="android:lineSpacingExtra">10dp</item>
+    </style>
+
+    <style name="AppParentTextStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+        <item name="android:lineSpacingExtra">@dimen/line_extra_space_4dp</item>
+    </style>
+
+    <style name="StartTitleTextStyle" parent="AppParentTextStyle">
+        <item name="android:textSize">@dimen/text_title_size_auth</item>
+        <item name="android:textColor">@color/dark_gray</item>
+        <item name="android:textFontWeight">700</item>
+    </style>
+
+    <style name="StartSubTitleTextStyle" parent="AppParentTextStyle">
+        <item name="android:textSize">@dimen/text_sub_title_size</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="StartHintTextStyle" parent="AppParentTextStyle">
+        <item name="android:textSize">@dimen/text_hint_size_auth</item>
+        <item name="android:textColor">@color/dark_gray</item>
+        <item name="android:lineSpacingExtra">0dp</item>
+    </style>
+
+    <style name="AppButtonTextStyle" parent="AppParentTextStyle">
+        <item name="android:lineSpacingExtra">@dimen/line_extra_space_3dp</item>
+    </style>
+
+    <style name="StartBlueTextStyle" parent="AppParentTextStyle">
+        <item name="android:textSize">@dimen/text_blue_size_14sp</item>
+        <item name="android:textColor">@color/dark_blue</item>
+        <item name="android:padding">@dimen/padding_start_blue_text</item>
+    </style>
+
+    <style name="StartPrimaryStyle" parent="AppParentTextStyle">
+        <item name="android:textSize">@dimen/text_start_primary_size_14sp</item>
+        <item name="android:textColor">@color/dark_gray</item>
+    </style>
+
+    <style name="StartSendOtpTextStyle" parent="AppParentTextStyle">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/dark_blue</item>
+    </style>
+
+    <!--    Button-->
+
+    <style name="MyShapeAppearance">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/radius_view_50dp</item>
+    </style>
+
+    <style name="MaterialButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="textAllCaps">false</item>
+        <item name="android:textSize">@dimen/text_button_size_15sp</item>
+        <item name="android:textAppearance">@style/AppButtonTextStyle</item>
+        <item name="android:insetTop">@dimen/inset_0dp</item>
+        <item name="android:insetBottom">@dimen/inset_0dp</item>
+        <item name="shapeAppearance">@style/MyShapeAppearance</item>
+    </style>
+
+    <style name="BlueButtonStyle" parent="MaterialButton">
+        <item name="backgroundTint">@color/blue</item>
+        <item name="strokeColor">@color/blue</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="textAllCaps">true</item>
+    </style>
+
+    <style name="TransparentBorderedButtonStyle" parent="MaterialButton">
+        <item name="backgroundTint">@android:color/transparent</item>
+        <item name="strokeColor">@color/blue</item>
+        <item name="android:textColor">@color/blue</item>
+        <item name="rippleColor">@color/light_blue</item>
+    </style>
+
+    <style name="AuthEditTextLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:background">@drawable/rounded_bg_et</item>
+        <item name="android:scaleY">0.9</item>
+        <item name="android:layout_marginStart">40dp</item>
+        <item name="android:layout_marginEnd">40dp</item>
+        <item name="android:textColorHint">@color/dark_gray</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+        <item name="endIconMode">clear_text</item>
+        <item name="hintEnabled">false</item>
+    </style>
+</resources>
