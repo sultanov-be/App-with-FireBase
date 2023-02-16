@@ -1,4 +1,4 @@
-package com.example.firebase.ui
+package com.example.firebase.ui.main
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

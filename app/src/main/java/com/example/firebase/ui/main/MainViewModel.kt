@@ -1,4 +1,4 @@
-package com.example.firebase.ui
+package com.example.firebase.ui.main
 
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel

@@ -72,6 +72,8 @@ dependencies {
 
     // KTX
     implementation "androidx.fragment:fragment-ktx:1.5.5"
+
+    implementation 'com.firebaseui:firebase-ui:0.6.0'
 }
 
 kapt {
