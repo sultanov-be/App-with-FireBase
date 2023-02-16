@@ -7,4 +7,5 @@
     <string name="type_password">Type password</string>
     <string name="type_a_nickname">Type a nickname</string>
     <string name="go_back">go back</string>
+    <string name="user">User: %s</string>
 </resources>

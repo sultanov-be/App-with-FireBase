@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.firebase.R
 import com.example.firebase.databinding.FragmentStartBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class StartFragment : Fragment() {
     private lateinit var binding: FragmentStartBinding
@@ -18,6 +19,12 @@ class StartFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentStartBinding.inflate(layoutInflater)
+
+        val firebaseUser = FirebaseAuth.getInstance().currentUser
+
+        if (firebaseUser != null) {
+            findNavController().navigate(R.id.action_startFragment_to_mainFragment)
+        }
 
         binding.signIn.setOnClickListener {
             findNavController().navigate(R.id.action_startFragment_to_signInFragment)
