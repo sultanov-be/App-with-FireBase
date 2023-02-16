@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.firebase.R
+import com.example.firebase.adapters.ViewPagerAdapter
 import com.example.firebase.databinding.FragmentMainBinding
+import com.google.android.material.tabs.TabLayoutMediator
 
 class MainFragment : Fragment() {
     private val viewModel: MainViewModel by viewModels()
@@ -38,5 +40,14 @@ class MainFragment : Fragment() {
             viewModel.logout()
             findNavController().navigate(R.id.startFragment)
         }
+
+        viewpager.adapter = ViewPagerAdapter(childFragmentManager, lifecycle)
+
+        TabLayoutMediator(tablayout, viewpager) {tab, position ->
+            when(position) {
+                0 -> tab.text = "Chats"
+                1 -> tab.text = "Users"
+            }
+        }.attach()
     }
 }
