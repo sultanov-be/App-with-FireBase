@@ -9,9 +9,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.firebase.R
 import com.example.firebase.databinding.FragmentStartBinding
-import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
 class StartFragment : Fragment() {
     private lateinit var binding: FragmentStartBinding
 

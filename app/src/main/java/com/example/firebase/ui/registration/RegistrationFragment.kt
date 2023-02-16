@@ -7,9 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.example.firebase.databinding.FragmentRegistrationBinding
-import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
 class RegistrationFragment : Fragment() {
     private val viewModel: RegistrationViewModel by viewModels()
     private lateinit var binding: FragmentRegistrationBinding
