@@ -4,7 +4,7 @@
     <dimen name="text_hint_size_auth">14sp</dimen>
     <dimen name="text_button_size_15sp">14sp</dimen>
     <dimen name="text_blue_size_14sp">14sp</dimen>
-    <dimen name="text_start_primary_size_14sp">14sp</dimen>
+    <dimen name="text_start_primary_size_14sp">16sp</dimen>
     <dimen name="text_sub_title_size">24sp</dimen>
 
     <dimen name="line_extra_space_4dp">4dp</dimen>
