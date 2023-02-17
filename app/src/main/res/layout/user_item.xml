@@ -20,6 +20,7 @@
             tools:ignore="ContentDescription" />
 
         <TextView
+            android:id="@+id/username"
             style="@style/StartSubTitleTextStyle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
