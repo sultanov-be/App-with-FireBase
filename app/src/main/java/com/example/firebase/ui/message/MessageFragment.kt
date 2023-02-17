@@ -1,6 +1,7 @@
 package com.example.firebase.ui.message
 
 import android.os.Bundle
+import android.text.Editable
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -35,7 +36,12 @@ class MessageFragment : Fragment() {
 
         sendBtn.setOnClickListener {
             if (emailInputText.text.toString() != "") {
-                //TODO(send message)
+                viewModel.sendMessage(
+                    emailInputText.text.toString(),
+                    args!!.id
+                )
+
+                emailInputText.text = "".toEditable()
             }
         }
 
@@ -59,4 +65,6 @@ class MessageFragment : Fragment() {
         emailInputLayout.visibility = VISIBLE
         sendBtn.visibility = VISIBLE
     }
+
+    private fun String.toEditable(): Editable =  Editable.Factory.getInstance().newEditable(this)
 }

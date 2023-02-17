@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.firebase.firebase.User
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -33,13 +34,15 @@ class MessageViewModel : ViewModel() {
         }
     }
 
-    fun sendMessage(msg: String, from: String, to: String) {
+    fun sendMessage(msg: String, to: String) {
         viewModelScope.launch(Dispatchers.IO) {
+            val fUser = FirebaseAuth.getInstance().currentUser!!.uid
+
             val reference = FirebaseDatabase.getInstance().reference
 
             val message = HashMap<String, Any>()
-            message["sender"] = to
-            message["receiver"] = from
+            message["sender"] = fUser
+            message["receiver"] = to
             message["message"] = msg
 
             reference.child("Chats").push().setValue(message)
