@@ -32,7 +32,7 @@ class MainFragment : Fragment() {
 
         viewModel.user.observe(viewLifecycleOwner) {
             if (it != null) {
-                tbText.text = getString(R.string.user, it.username)
+                tbText.text = it.username
             }
         }
 

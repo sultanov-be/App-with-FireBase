@@ -6,11 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.firebase.adapters.ChatClickHandler
 import com.example.firebase.adapters.UserAdapter
 import com.example.firebase.databinding.FragmentChatBinding
+import com.example.firebase.ui.main.MainFragmentDirections
 
-class ChatFragment : Fragment() {
+class ChatFragment : Fragment(), ChatClickHandler {
     private lateinit var binding: FragmentChatBinding
     private val viewModel : ChatViewModel by viewModels()
 
@@ -33,10 +36,14 @@ class ChatFragment : Fragment() {
                 recyclerUsers.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
                 val adapter = UserAdapter(it)
                 recyclerUsers.adapter = adapter
+                adapter.setInterface(this@ChatFragment)
                 progressBar.visibility = View.GONE
                 recyclerUsers.visibility = View.VISIBLE
             }
         }
+    }
 
+    override fun clickedUser(id: String) {
+        findNavController().navigate(MainFragmentDirections.goToMessage(id))
     }
 }

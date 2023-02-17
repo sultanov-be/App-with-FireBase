@@ -37,10 +37,9 @@ class RegistrationFragment : Fragment() {
             }
         }
 
-        backButton.setOnClickListener { findNavController().popBackStack() }
+        backButton.setOnClickListener { findNavController().navigate(RegistrationFragmentDirections.actionRegistrationFragmentToStartFragment()) }
 
         viewModel.isRegistered.observe(viewLifecycleOwner) {
-            //TODO(Handle situation with navigation)
             when(it) {
                 true -> findNavController().navigate(R.id.action_registrationFragment_to_signInFragment)
                 else -> Toast.makeText(requireContext(), "Cannot to register a user", Toast.LENGTH_SHORT).show()

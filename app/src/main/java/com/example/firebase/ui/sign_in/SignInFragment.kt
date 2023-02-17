@@ -27,7 +27,7 @@ class SignInFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding) {
         super.onViewCreated(view, savedInstanceState)
 
-        backButton.setOnClickListener { findNavController().popBackStack() }
+        backButton.setOnClickListener { findNavController().navigate(SignInFragmentDirections.goToMain()) }
 
         signUpButton.setOnClickListener {
             if (!emailInputText.text.isNullOrEmpty() && !passwordInputText.text.isNullOrEmpty()) {
