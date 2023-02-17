@@ -15,7 +15,7 @@
     <color name="blue">#5AC3E1</color>
     <color name="dark_blue">#0086AC</color>
     <!--Dark-->
-    <color name="light_gray">#D3D3D3</color>
+    <color name="light_gray">#FFF6F0F0</color>
     <color name="gray">#A9A9A9</color>
     <color name="dark_gray">#404040</color>
 </resources>

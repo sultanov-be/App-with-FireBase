@@ -10,8 +10,11 @@ import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.firebase.R
+import com.example.firebase.adapters.MessageAdapter
 import com.example.firebase.databinding.FragmentMessageBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class MessageFragment : Fragment() {
     private val viewModel: MessageViewModel by viewModels()
@@ -25,27 +28,33 @@ class MessageFragment : Fragment() {
     ): View {
         binding = FragmentMessageBinding.inflate(layoutInflater)
 
-        args = MessageFragmentArgs.fromBundle(requireArguments())
-        viewModel.getData(args!!.id)
-
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding) {
         super.onViewCreated(view, savedInstanceState)
 
+        val fUser = FirebaseAuth.getInstance().currentUser!!.uid
+
+        args = MessageFragmentArgs.fromBundle(requireArguments())
+
+        viewModel.getData(args!!.id)
+        viewModel.getMessages(fUser, args!!.id)
+
+        showNickname()
+        showMessages()
+
         sendBtn.setOnClickListener {
             if (emailInputText.text.toString() != "") {
                 viewModel.sendMessage(
                     emailInputText.text.toString(),
-                    args!!.id
+                    args!!.id,
+                    fUser
                 )
 
                 emailInputText.text = "".toEditable()
             }
         }
-
-        showNickname()
     }
 
     private fun showNickname() = with(binding) {
@@ -54,6 +63,16 @@ class MessageFragment : Fragment() {
                 Toast.makeText(requireContext(), "User not found", Toast.LENGTH_SHORT).show()
             } else {
                 username.text = getString(R.string.user, it.username)
+            }
+        }
+    }
+
+    private fun showMessages() = with(binding) {
+        viewModel.listChat.observe(viewLifecycleOwner) {
+            if (it != null) {
+                recyclerChat.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+                val adapter = MessageAdapter(it)
+                recyclerChat.adapter = adapter
                 showViews()
             }
         }
@@ -64,6 +83,7 @@ class MessageFragment : Fragment() {
         tb.visibility = VISIBLE
         emailInputLayout.visibility = VISIBLE
         sendBtn.visibility = VISIBLE
+        recyclerChat.visibility = VISIBLE
     }
 
     private fun String.toEditable(): Editable =  Editable.Factory.getInstance().newEditable(this)
