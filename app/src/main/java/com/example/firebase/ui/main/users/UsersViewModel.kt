@@ -15,7 +15,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class UsersViewModel : ViewModel() {
-
     val listUser = MutableLiveData<ArrayList<User>>()
 
     fun getUsers() {
