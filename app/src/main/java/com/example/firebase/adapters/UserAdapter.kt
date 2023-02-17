@@ -8,6 +8,7 @@ import com.example.firebase.firebase.User
 
 class UserAdapter constructor(var list: List<User>) :
     RecyclerView.Adapter<UserAdapter.ViewHolder>() {
+    lateinit var userClicked: ChatClickHandler
 
     inner class ViewHolder(val binding: UserItemBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -20,10 +21,18 @@ class UserAdapter constructor(var list: List<User>) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) = with(holder.binding) {
         val user = list[position]
 
+        holder.itemView.setOnClickListener {
+            userClicked.clickedUser(user.id!!)
+        }
+
         username.text = user.username
     }
 
     override fun getItemCount(): Int {
         return list.size
+    }
+
+    fun setInterface(userClicked: ChatClickHandler) {
+        this.userClicked = userClicked
     }
 }

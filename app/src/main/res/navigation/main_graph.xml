@@ -9,7 +9,7 @@
         android:id="@+id/startFragment"
         android:name="com.example.firebase.ui.StartFragment"
         android:label="fragment_start"
-        tools:layout="@layout/fragment_start" >
+        tools:layout="@layout/fragment_start">
         <action
             android:id="@+id/action_startFragment_to_signInFragment"
             app:destination="@id/signInFragment" />
@@ -24,7 +24,7 @@
         android:id="@+id/signInFragment"
         android:name="com.example.firebase.ui.sign_in.SignInFragment"
         android:label="fragment_sign_in"
-        tools:layout="@layout/fragment_sign_in" >
+        tools:layout="@layout/fragment_sign_in">
         <action
             android:id="@+id/action_signInFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
@@ -33,7 +33,7 @@
         android:id="@+id/registrationFragment"
         android:name="com.example.firebase.ui.registration.RegistrationFragment"
         android:label="fragment_registration"
-        tools:layout="@layout/fragment_registration" >
+        tools:layout="@layout/fragment_registration">
         <action
             android:id="@+id/action_registrationFragment_to_signInFragment"
             app:destination="@id/signInFragment" />
@@ -42,5 +42,27 @@
         android:id="@+id/mainFragment"
         android:name="com.example.firebase.ui.main.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/goToMessage"
+            app:destination="@id/messageFragment">
+            <argument
+                android:name="id"
+                app:argType="string" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/usersFragment"
+        android:name="com.example.firebase.ui.main.users.UsersFragment"
+        android:label="fragment_users"
+        tools:layout="@layout/fragment_users"/>
+    <fragment
+        android:id="@+id/messageFragment"
+        android:name="com.example.firebase.ui.message.MessageFragment"
+        android:label="fragment_message"
+        tools:layout="@layout/fragment_message">
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
 </navigation>
